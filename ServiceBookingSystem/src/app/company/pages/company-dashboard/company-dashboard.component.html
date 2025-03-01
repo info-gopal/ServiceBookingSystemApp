@@ -1,0 +1,72 @@
+<nz-table #basicTable [nzData]="bookings" [nzPageSize]="20" [nzBordered]="true" [nzShowPagination]="false"
+    style="padding: 20px;">
+    
+    <thead>
+        <th class="heading">Client Name</th>
+        <th class="heading">Service</th>
+        <th class="heading">Date</th>
+        <th class="heading">Status</th>
+        <th class="heading">Action</th>
+    </thead>
+    <tbody>
+        <tr *ngFor="let booking of basicTable.data">
+            <td style="font-weight: 600;">{{booking.userName}}</td>
+            <td style="font-weight: 600;">{{booking.serviceName}}</td>
+            <td>{{booking.bookDate | date: "dd/MM/yyyy"}}</td>
+            <td style="font-weight: 600;"> {{booking.reservationStatus}}</td>
+            <td>
+                <span *ngIf="booking.reservationStatus === 'PENDING'">
+                    <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary"
+                        (click)="changeBookingStatus(booking.id,'Approve')">Approve</button>
+                    <button style="margin-left: 10px;" nzSize="small" nz-button nzType="primary"
+                        (click)="changeBookingStatus(booking.id,'Reject')" nzDanger>Reject</button>
+                </span>
+            </td>
+        </tr>
+    </tbody>
+
+
+</nz-table>
+
+<!-- <div class="br-item pt-2" style="min-width: 200px;" *ngIf="isExpeditedSelected && sftNewLineEnabled">
+   
+    <span [ngClass]="{'text-success': sftEligibleFlag,'text-danger': IsftEligibleFlag}">{{ sftNettingEligibleMessage }}</span>
+    <span class="eminus-cal" placement="bottom" [ngbTooltip]="eminusCal" container="body">
+        <svg class="icon icon-ext-link">
+            <use xlink:href="#icon-icon-info"></use>
+        </svg>
+    </span>
+    <div class="br-item-header comp-br-item mt-1">
+        <span>OPT OUT OF SFT</span>
+        <label class="radio-group">
+            <input type="radio" name="sftoptout" [(ngModel)]="sftOptOut" [value]="true" class="mr-1"
+                [disabled]="isOptOutDisabled" (change)="onOptOutChange(true)" />
+            YES
+        </label>
+        <label class="radio-group">
+            <input type="radio" name="sftoptout" [(ngModel)]="sftOptOut" [value]="false" class="mr-1"
+                [disabled]="isOptOutDisabled" (change)="onOptOutChange(false)" />
+            NO
+        </label>
+    </div>
+
+   
+    <div *ngIf="sftOptOut || (IsftEligibleFlag && purposeId === 'yes' && sftOptOut)">
+        <div class="br-item-header comp-br-item">
+            <span>
+                REASONS FOR OPTING OUT OF SFT
+                <span class="salutation font-italic char-left">
+                    (Characters left: {{ 200 - (sftOptOutReason?.length || 0) }})
+                </span>
+            </span>
+            <span class="has-danger error" *ngIf="!sftOptOutReason">
+                * This field is mandatory
+            </span>
+        </div>
+        <textarea rows="2" maxlength="200" class="form-control width-400" [(ngModel)]="sftOptOutReason"
+            placeholder="Specify a reason for opting out of SFT" [ngClass]="{ disabled: isOptOutDisabled }"></textarea>
+        <div class="has-danger" *ngIf="!sftOptOutReason">
+            <span class="error">*This field is mandatory</span>
+        </div>
+    </div>
+</div> -->

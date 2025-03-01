@@ -1,0 +1,51 @@
+<div class="bg">
+    <div class="parent">
+        <div class="child">
+
+            <div nz-col>
+                <h1 style="margin-left: 55px;">Client Signup</h1>
+            </div>
+            <form nz-form [formGroup]="validateForm" (ngSubmit)="submirForm()">
+                <nz-form-item>
+                    <nz-form-control nzHasFeedback nzErrorTip="This input is not valid E-mail">
+                        <input nz-input placeholder="E-mail" formControlName="userEmail" id="email" />
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-control nzHasFeedback nzErrorTip="This input is not valid password">
+                        <input nz-input placeholder="password" formControlName="password" id="password" />
+                    </nz-form-control>
+                </nz-form-item>
+                <!-- <nz-form-item>
+                    <nz-form-control nzHasFeedback nzErrorTip="This input is not valid confirmPassword">
+                        <input nz-input placeholder="confirmPassword" formControlName="confirmPassword" id="confirmPassword" />
+                    </nz-form-control>
+                </nz-form-item> -->
+                <nz-form-item>
+                    <nz-form-control nzHasFeedback nzErrorTip="This input is not valid name">
+                        <input nz-input placeholder="name" formControlName="userName" id="name" />
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-control nzHasFeedback nzErrorTip="This input is not valid LastName">
+                        <input nz-input placeholder="lastname" formControlName="lastName" id="lastName" />
+                    </nz-form-control>
+                </nz-form-item>
+                <nz-form-item>
+                    <nz-form-control nzHasFeedback nzErrorTip="This input is not valid Phone">
+                        <input nz-input placeholder="phone" formControlName="mobileNo" id="mobileNo" />
+                    </nz-form-control>
+                </nz-form-item>
+                <button nz-button class="login-form-button login-form-margin" [nzType]="'primary'">Register</button>
+                or <a routerLink="/login">Login now!</a>
+
+            </form>
+        </div>
+    </div>
+
+
+
+
+
+
+</div>
